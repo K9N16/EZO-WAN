@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>エゾわん!認定パートナー施設のご案内</title>
+<meta name="description" content="北海道の犬の飼い主さんのコミュニティアプリ「エゾわん!」認定パートナー施設のご案内。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Organic — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo:wght@400&family=Figtree:wght@400;600;700&display=swap');
+
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-accent-2: #7a8a5e;
+  --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-200: #eee7db;
+  --color-neutral-300: #dcd3c4;
+  --color-neutral-400: #c0b6a5;
+  --color-neutral-500: #a19786;
+  --color-neutral-600: #82796a;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-neutral-900: #2e2b25;
+
+  --color-accent-100: #fff2eb;
+  --color-accent-200: #ffe1d0;
+  --color-accent-300: #ffc6a5;
+  --color-accent-400: #f6a06b;
+  --color-accent-500: #d67f48;
+  --color-accent-600: #b2622d;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-900: #402310;
+
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-200: #e1eecc;
+  --color-accent-2-300: #ccdbb2;
+  --color-accent-2-400: #aebf92;
+  --color-accent-2-500: #8fa073;
+  --color-accent-2-600: #728157;
+  --color-accent-2-700: #56633f;
+  --color-accent-2-800: #3d472b;
+  --color-accent-2-900: #272e1b;
+
+  --font-heading: "Caprasimo", system-ui, sans-serif;
+  --font-heading-weight: 400;
+  --font-body: "Figtree", system-ui, sans-serif;
+
+  --space-1: 4.4px;
+  --space-2: 8.8px;
+  --space-3: 13.2px;
+  --space-4: 17.6px;
+  --space-6: 26.4px;
+  --space-8: 35.2px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.washed{filter:saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94)}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* — rounded frame: everything softens, small controls go pill — */
+.card, .dialog { border-radius: calc(var(--radius-lg) * 1.15); }
+.btn, .tag, .seg, .input { border-radius: 999px; }
+.input { padding-inline: 14px; }
+
+
+body{margin:0;font-family:"Zen Kaku Gothic New",system-ui,sans-serif;background:var(--color-bg)}
+a{color:var(--color-accent-700);text-decoration:none;border-bottom:1px solid var(--color-accent-300)}
+a:hover{color:var(--color-accent-800);border-bottom-color:var(--color-accent-600)}
+a[data-hover]:hover{background:var(--color-accent-600);color:#fff}
+</style>
+</head>
+<body>
+<div style="background:var(--color-bg);color:var(--color-text);font-family:'Zen Kaku Gothic New',system-ui,sans-serif;padding:0 20px 56px">
+<div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:52px;padding-top:40px">
+
+  <header style="display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <img src="icon.png" alt="エゾわん!" style="width:64px;height:64px;border-radius:16px;box-shadow:var(--shadow-sm)">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px">エゾわん!</div>
+        <div style="font-size:13px;color:var(--color-neutral-700)">北海道の犬の飼い主さんのためのコミュニティアプリ</div>
+      </div>
+      <div style="margin-left:auto"><span style="display:inline-block;background:var(--color-accent-100);color:var(--color-accent-800);border-radius:999px;padding:9px 18px;font-size:13px;font-weight:700">認定パートナー施設 募集中</span></div>
+    </div>
+    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(28px,5vw,44px);line-height:1.35;letter-spacing:.01em;margin:8px 0 0">認定パートナー施設のご案内</h1>
+    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,21px);color:var(--color-accent-700);line-height:1.6">北海道の飼い主さんと、あなたの施設をつなぐ。</div>
+    <p style="margin:0;max-width:680px;font-size:15px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">ドッグラン・ペット可カフェ・動物病院・トリミングサロン・ペットホテルなど、犬と一緒に訪れられる施設を「認定パートナー施設」としてアプリ内に掲載しています。口コミを中心に着実に成長中で、毎月、新しい認定施設と新しい利用者が加わり続けています。</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a href="mailto:ezo-wan@rai-group.net?subject=認定パートナー施設について" style="border-bottom:none;background:var(--color-accent);color:#fff;border-radius:999px;padding:13px 26px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;display:inline-block" data-hover="background:var(--color-accent-600);color:#fff">掲載についてお問い合わせ</a>
+      
+    </div>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">「エゾわん!」とは?</h2>
+    <p style="margin:0;max-width:700px;font-size:15px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">北海道の犬の飼い主さんが、愛犬とのおでかけ先を探したり、日々の記録を残したり、飼い主さん同士でつながるために使うスマートフォンアプリです。エリアを問わず、道内各地の飼い主さんに使われ始めています。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:22px 24px;display:flex;flex-direction:column;gap:9px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px">おでかけ先が見つかる</div>
+        <div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);text-wrap:pretty">認定パートナー施設を地図と一覧から探せます。現在地から近い順に並び、その月まだ訪れていない施設には目印がつきます。</div>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:22px 24px;display:flex;flex-direction:column;gap:9px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 4.5-5"></path></svg>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px">来店を「チェックイン」で記録</div>
+        <div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);text-wrap:pretty">施設に実際に来た飼い主さんが、GPSを使った「公式チェックポイント」でチェックインし、ポイントを獲得できます。</div>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:22px 24px;display:flex;flex-direction:column;gap:9px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3"></path><path d="M7 5H4v2a3 3 0 0 0 3 3"></path></svg>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px">ランキングと称号を楽しむ</div>
+        <div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800);text-wrap:pretty">集めたポイントでランキングに参加でき、プロフィールに特別な称号を手に入れられます。「次はどこへ行こう」を後押しする仕組みです。</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">こんな課題、ありませんか?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+      <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <div style="font-size:15px;font-weight:700;line-height:1.7">新しいお客様に見つけてもらう経路が少ない</div>
+      </div>
+      <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"></path><path d="M21 3v6h-6"></path></svg>
+        <div style="font-size:15px;font-weight:700;line-height:1.7">一度きりの来店で終わってしまう</div>
+      </div>
+      <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"></path></svg>
+        <div style="font-size:15px;font-weight:700;line-height:1.7">良いお店なのに口コミが集まりにくい</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:16px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">認定パートナー施設になる、5つのメリット</h2>
+
+    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 24px">
+      <div style="width:46px;height:46px;flex:0 0 auto;border-radius:999px;background:var(--color-accent-200);display:flex;align-items:center;justify-content:center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8c491a" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px">来店した飼い主さんと、その場でつながる</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">実際に施設に来た方だけが、候補ボタンからチェックインできます(手入力は対象外)。確かな来店だけが記録として残ります。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 24px">
+      <div style="width:46px;height:46px;flex:0 0 auto;border-radius:999px;background:var(--color-accent-200);display:flex;align-items:center;justify-content:center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8c491a" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px">掲載直後に「今のうちに行ってみよう」が生まれる</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">掲載から30日以内の初チェックインには、通常より多い<strong style="color:var(--color-accent-700)">+10pt</strong>の新規認定施設ボーナス。掲載スタート時に、飼い主さんの足が向く仕掛けが働きます。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 24px">
+      <div style="width:46px;height:46px;flex:0 0 auto;border-radius:999px;background:var(--color-accent-2-200);display:flex;align-items:center;justify-content:center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#56633f" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"></path><path d="M21 3v6h-6"></path></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px">「また来よう」をポイント設計で後押し</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">7日以上空けての再訪 +3pt、その月の最初のチェックイン +5pt、異なる施設を5か所巡ると +10pt。単発で終わらせず、リピートと周遊を促す設計です。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 24px">
+      <div style="width:46px;height:46px;flex:0 0 auto;border-radius:999px;background:var(--color-accent-2-200);display:flex;align-items:center;justify-content:center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#56633f" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"></path></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px">施設専用ページに、生の口コミが貯まっていく</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">施設名・写真・PRコメント・住所(マップ連携)・電話番号・公式ホームページ・営業時間・設備条件を掲載。実際に来店した飼い主さんのコメントが積み重なり、次のお客様の安心材料になります。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 24px">
+      <div style="width:46px;height:46px;flex:0 0 auto;border-radius:999px;background:var(--color-accent-200);display:flex;align-items:center;justify-content:center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8c491a" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8z"></path></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px">お知らせ・施設一覧・イベント告知で、露出が続く</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">掲載時は「新着認定施設」としてお知らせ欄に登場。開催イベントの情報も、ご依頼いただければお知らせ欄に無料で掲載します。</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">来店が「続く」仕組み</h2>
+    <p style="margin:0;max-width:700px;font-size:15px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">チェックインで貯まったポイントは、ランキングやプロフィールの称号につながります。飼い主さんにとっては「もう一度行く理由」「まだ行っていない施設を巡る理由」になります。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px">
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:var(--color-accent-700)">+10pt</div>
+        <div style="font-size:14px;font-weight:700">掲載30日以内の初来店</div>
+        <div style="font-size:12.5px;line-height:1.8;color:var(--color-neutral-700)">新規認定施設ボーナス</div>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:var(--color-accent-700)">+3pt</div>
+        <div style="font-size:14px;font-weight:700">7日以上空けての再訪</div>
+        <div style="font-size:12.5px;line-height:1.8;color:var(--color-neutral-700)">リピートのきっかけに</div>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:var(--color-accent-700)">+5pt</div>
+        <div style="font-size:14px;font-weight:700">その月の最初の来店</div>
+        <div style="font-size:12.5px;line-height:1.8;color:var(--color-neutral-700)">毎月の来店習慣に</div>
+      </div>
+      <div style="background:var(--color-surface);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:var(--color-accent-700)">+10pt</div>
+        <div style="font-size:14px;font-weight:700">5か所の施設を巡ると</div>
+        <div style="font-size:12.5px;line-height:1.8;color:var(--color-neutral-700)">道内の周遊を後押し</div>
+      </div>
+    </div>
+    <div style="background:var(--color-accent-2-100);border-radius:var(--radius-lg);padding:22px 26px;display:flex;flex-direction:column;gap:7px">
+      <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:var(--color-accent-2-800)">ランキング入賞者への企画も可能です</div>
+      <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">ランキング上位の飼い主さんへ、企業様から試供品などのプレゼントを配布する企画も実施できます。愛犬家のみなさんに、商品やサービスを直接届けられる場としてご活用ください。ご興味のある方はお問い合わせください。</div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">掲載イメージ ― アプリ内の施設ページ</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;align-items:start">
+      <div style="max-width:300px;border-radius:22px;background:var(--color-neutral-100);box-shadow:var(--shadow-md);overflow:hidden;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--color-accent-100)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 4.5-5"></path></svg>
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12.5px;color:var(--color-accent-800)">エゾわん!認定パートナー施設</span>
+        </div>
+        <div style="padding:12px;display:flex;flex-direction:column;gap:9px;background:var(--color-accent-100)">
+          <div style="height:96px;border-radius:14px;background:var(--color-neutral-300);border:2px dashed var(--color-neutral-500);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--color-neutral-700)">施設のお写真</div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px">◯◯ドッグラン なつぞらの里</div>
+            <div style="font-size:12px;font-weight:700;color:var(--color-accent-2-700)">12km・営業中(0分前)</div>
+            <div style="font-size:11.5px;line-height:1.7;color:var(--color-neutral-800)">ドッグランは、小型犬用・中大型犬用に分かれております。開放期間中は常時開放しています。</div>
+          </div>
+          <div style="background:var(--color-neutral-100);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;font-size:11.5px">
+            <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c67139" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span>◯◯郡◯◯町◯◯ 2</span><span style="color:var(--color-accent-700);font-weight:700">Googleマップを開く</span></div>
+            <div style="display:flex;gap:7px;align-items:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c67139" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 20a12 12 0 0 1-11.5-11.5A2.5 2.5 0 0 1 6.5 6h1.6a1 1 0 0 1 1 .75l.6 2.3a1 1 0 0 1-.5 1.1l-1 .6a10 10 0 0 0 4.5 4.5l.6-1a1 1 0 0 1 1.1-.5l2.3.6a1 1 0 0 1 .75 1v1.6A2.5 2.5 0 0 1 15.5 20"></path></svg><span>0155-00-0000</span></div>
+            <div style="display:flex;gap:7px;align-items:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c67139" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"></path></svg><span style="text-decoration:underline">公式ホームページ</span></div>
+          </div>
+          <div style="background:var(--color-neutral-100);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;gap:7px;align-items:center;font-size:11.5px;font-weight:700"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c67139" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>営業時間</span></div>
+            <div style="font-size:11px;color:var(--color-neutral-800);line-height:1.7">月〜日 9:00 〜 18:00</div>
+          </div>
+          <div style="background:var(--color-neutral-100);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:11.5px;font-weight:700">設備・条件</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;font-size:11px;color:var(--color-accent-800)">
+              <span>🐾 ドッグランあり</span><span>🐾 大型犬OK</span>
+              <span>🐾 駐車場あり</span><span>🐾 トイレあり</span>
+            </div>
+          </div>
+          <div style="background:var(--color-neutral-100);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:5px">
+            <div style="font-size:11.5px;font-weight:700">コメント</div>
+            <div style="font-size:11px;line-height:1.7;color:var(--color-neutral-800)">「スタッフさんが優しくて、うちの子も安心して遊べました!」</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:var(--color-accent-700)">掲載できる情報</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px 18px;font-size:14px;line-height:1.7">
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>施設名・お写真</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>PRコメント</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>住所(マップ連携)</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>電話番号</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>公式ホームページ</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>曜日ごとの営業時間</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>設備・条件の目印</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--color-accent)">●</span>イベント告知(無料)</div>
+        </div>
+        <div style="background:var(--color-accent-2-100);border-radius:var(--radius-lg);padding:20px 24px;display:flex;flex-direction:column;gap:7px">
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:var(--color-accent-2-800)">施設側の作業は、ほぼありません</div>
+          <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800);text-wrap:pretty">アプリのインストールや難しい設定は不要です。基本情報をお知らせいただければ、掲載作業は運営が代行します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">ご登録までの流れ</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">1</div>
+        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">お問い合わせ</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">下記のメールアドレスまで、お気軽にご連絡ください。</div></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">2</div>
+        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">情報のご提供</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">施設名・住所・営業時間・お写真・PR文をお知らせください。</div></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">3</div>
+        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">掲載スタート</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">運営が掲載作業を代行。「新着認定施設」としてお知らせします。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+    <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:24px 26px;display:flex;flex-direction:column;gap:9px">
+      <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px">掲載費用について</div>
+      
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-800)">詳しくはお問い合わせください。</div>
+      
+      
+    </div>
+    <div style="background:var(--color-accent-100);border-radius:var(--radius-lg);padding:24px 26px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:var(--color-accent-800)">お問い合わせ先</div>
+      <div style="font-size:14px;line-height:1.9;color:var(--color-neutral-800)">エゾわん!運営事務局</div>
+      <a href="mailto:ezo-wan@rai-group.net?subject=認定パートナー施設について" style="font-size:15px;font-weight:700">ezo-wan@rai-group.net</a>
+    </div>
+    
+      <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:24px 26px;display:flex;align-items:center;gap:16px">
+        <img src="qr.png" alt="エゾわん!サイト QRコード" style="width:96px;height:96px;border-radius:12px;background:#fff;padding:5px;box-sizing:border-box;flex:0 0 auto">
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px">エゾわん!サイト</div>
+          <div style="font-size:12.5px;line-height:1.8;color:var(--color-neutral-700)">スマートフォンで読み取ってご覧ください。</div>
+        </div>
+      </div>
+    
+  </section>
+
+  <div style="border-top:1px solid var(--color-divider);padding-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--color-neutral-700)">
+    <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:var(--color-accent-700)">エゾわん!認定パートナー施設のご案内</span>
+    <span style="margin-left:auto">エゾわん!運営事務局</span>
+  </div>
+</div>
+</div>
+</body>
+</html>
