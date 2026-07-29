@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>エゾわん!認定パートナー施設のご案内</title>
-<meta name="description" content="北海道の犬の飼い主さんのコミュニティアプリ「エゾわん!」認定パートナー施設のご案内。">
+<meta name="description" content="北海道の犬の飼い主さんのコミュニティアプリ「エゾわん!」認定パートナー施設のご案内と審査申し込み。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* Organic — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
@@ -271,7 +271,111 @@ body{margin:0;font-family:"Zen Kaku Gothic New",system-ui,sans-serif;background:
 a{color:var(--color-accent-700);text-decoration:none;border-bottom:1px solid var(--color-accent-300)}
 a:hover{color:var(--color-accent-800);border-bottom-color:var(--color-accent-600)}
 a[data-hover]:hover{background:var(--color-accent-600);color:#fff}
+#apply-form label:has(input:checked) { border-color: var(--color-accent) !important; background: var(--color-accent-100) !important; font-weight: 700; }
+#apply-form label:hover { border-color: var(--color-accent-400) !important; }
+#apply-form .input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+#apply-form .input[aria-invalid="true"] { border-color: var(--color-accent) !important; background: var(--color-accent-100); }
+#apply-form button[type="submit"]:hover { background: var(--color-accent-600); }
+#apply-form button[type="submit"]:disabled { opacity: .45; cursor: not-allowed; }
 </style>
+<script>
+window.EZO_FORM = {
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSdqYSxhmt02za25rMVkdtR6ZT_Wo-C5hZuxxRm6HXTVhz5ahg/formResponse",
+  viewform: "https://docs.google.com/forms/d/e/1FAIpQLSdqYSxhmt02za25rMVkdtR6ZT_Wo-C5hZuxxRm6HXTVhz5ahg/viewform",
+  entries: {
+    name: "entry.1477049925",
+    address: "entry.1436804896",
+    tel: "entry.956602357",
+    web: "entry.532775559",
+    sns: "entry.211786447",
+    pr: "entry.1750382022",
+    license: "entry.1681796865",
+    features: "entry.453634478",
+    open: "entry.1627134782",
+    close: "entry.1655847197",
+    closed: "entry.1943067338"
+  }
+};
+(function () {
+  function init() {
+    var form = document.getElementById("apply-form");
+    if (!form || form.dataset.bound) { return; }
+    form.dataset.bound = "1";
+    var note = document.getElementById("apply-note");
+    var done = document.getElementById("apply-done");
+    var cfg = window.EZO_FORM;
+
+    var pr = document.getElementById("q-pr");
+    if (pr) {
+      var flatten = function () {
+        var v = pr.value.replace(/[\r\n]+/g, " ");
+        if (v !== pr.value) { pr.value = v; }
+      };
+      pr.addEventListener("keydown", function (ev) { if (ev.key === "Enter") { ev.preventDefault(); } });
+      pr.addEventListener("input", flatten);
+      pr.addEventListener("paste", function () { setTimeout(flatten, 0); });
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var invalid = null;
+      form.querySelectorAll("[required]").forEach(function (el) {
+        var bad = !el.value.trim();
+        el.setAttribute("aria-invalid", bad ? "true" : "false");
+        if (bad && !invalid) { invalid = el; }
+      });
+      if (invalid) {
+        if (note) { note.textContent = "必須項目をご記入ください。"; note.style.color = "var(--color-accent-800)"; }
+        invalid.focus();
+        return;
+      }
+
+      var params = new URLSearchParams();
+      form.querySelectorAll("[data-q]").forEach(function (el) {
+        var id = cfg.entries[el.dataset.q];
+        if (!id || !el.value) { return; }
+        if (el.type === "time") {
+          var p = el.value.split(":");
+          params.append(id + "_hour", p[0]);
+          params.append(id + "_minute", p[1]);
+        } else {
+          params.append(id, el.value.replace(/[\r\n]+/g, " "));
+        }
+      });
+      form.querySelectorAll("[data-group]").forEach(function (group) {
+        var id = cfg.entries[group.dataset.group];
+        if (!id) { return; }
+        group.querySelectorAll("input:checked").forEach(function (input) { params.append(id, input.value); });
+      });
+
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = "送信しています…"; }
+
+      fetch(cfg.action, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString()
+      }).then(function () {
+        form.style.display = "none";
+        if (done) { done.style.display = "block"; }
+        if (done && done.scrollIntoView) { window.scrollTo({ top: done.getBoundingClientRect().top + window.scrollY - 120, behavior: "smooth" }); }
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = "この内容で申し込む"; }
+        if (note) {
+          note.innerHTML = '送信できませんでした。恐れ入りますが <a href="' + cfg.viewform + '" target="_blank" rel="noopener">こちらのフォーム</a> からお申し込みください。';
+          note.style.color = "var(--color-accent-800)";
+        }
+      });
+    });
+  }
+  if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", init); }
+  else { init(); }
+  setTimeout(init, 300);
+  setTimeout(init, 1200);
+  setTimeout(init, 3000);
+})();
+</script>
 </head>
 <body>
 <div style="background:var(--color-bg);color:var(--color-text);font-family:'Zen Kaku Gothic New',system-ui,sans-serif;padding:0 20px 56px">
@@ -290,8 +394,8 @@ a[data-hover]:hover{background:var(--color-accent-600);color:#fff}
     <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,21px);color:var(--color-accent-700);line-height:1.6">北海道の飼い主さんと、あなたの施設をつなぐ。</div>
     <p style="margin:0;max-width:680px;font-size:15px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">ドッグラン・ペット可カフェ・動物病院・トリミングサロン・ペットホテルなど、犬と一緒に訪れられる施設を「認定パートナー施設」としてアプリ内に掲載しています。口コミを中心に着実に成長中で、毎月、新しい認定施設と新しい利用者が加わり続けています。</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <a href="mailto:ezo-wan@rai-group.net?subject=認定パートナー施設について" style="border-bottom:none;background:var(--color-accent);color:#fff;border-radius:999px;padding:13px 26px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;display:inline-block" data-hover="background:var(--color-accent-600);color:#fff">掲載についてお問い合わせ</a>
-      
+      <a href="#apply" style="border-bottom:none;background:var(--color-accent);color:#fff;border-radius:999px;padding:13px 26px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;display:inline-block">認定パートナーに申し込む</a>
+      <a href="mailto:ezo-wan@rai-group.net?subject=認定パートナー施設について" style="border-bottom:none;background:transparent;color:var(--color-accent-700);border:1.5px solid var(--color-accent-300);border-radius:999px;padding:12px 24px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;display:inline-block">掲載についてお問い合わせ</a>
     </div>
   </header>
 
@@ -482,15 +586,134 @@ a[data-hover]:hover{background:var(--color-accent-600);color:#fff}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">1</div>
-        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">お問い合わせ</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">下記のメールアドレスまで、お気軽にご連絡ください。</div></div>
+        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">フォームから申し込み</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">このページ下部のフォームからお申し込みください。メールでのご連絡でも承ります。</div></div>
       </div>
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">2</div>
-        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">情報のご提供</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">施設名・住所・営業時間・お写真・PR文をお知らせください。</div></div>
+        <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">内容の確認・審査</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">記載内容を確認し、お写真などをお預かりします。必要に応じてご連絡します。</div></div>
       </div>
       <div style="display:flex;gap:14px;align-items:flex-start">
         <div style="width:40px;height:40px;flex:0 0 auto;border-radius:999px;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px">3</div>
         <div><div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px">掲載スタート</div><div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">運営が掲載作業を代行。「新着認定施設」としてお知らせします。</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="apply" style="display:flex;flex-direction:column;gap:18px;scroll-margin-top:24px">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;margin:0">認定パートナー審査のお申し込み</h2>
+    <p style="margin:0;max-width:700px;font-size:15px;line-height:2;color:var(--color-neutral-800);text-wrap:pretty">下のフォームからそのままお申し込みいただけます。分かる範囲のご記入で構いません。送信内容は掲載や審査とご連絡のためだけに利用します。</p>
+
+    <div style="border-radius:28px;background:var(--color-neutral-100);box-shadow:var(--shadow-md);overflow:hidden;border:1px solid var(--color-accent-200)">
+      <div style="display:flex;align-items:center;gap:12px;padding:16px 22px;background:var(--color-accent-100);flex-wrap:wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b2622d" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 4.5-5"></path></svg>
+        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13.5px;color:var(--color-accent-800)">エゾわん!認定パートナー審査 申し込みフォーム</span>
+      </div>
+      <form id="apply-form" novalidate="novalidate" style="display:block;padding:26px 24px 28px;background:var(--color-neutral-100)">
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+          <div class="field">
+            <label for="q-name" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">施設名 <span style="color:var(--color-accent-700)">必須</span></label>
+            <input class="input" id="q-name" data-q="name" required="required" type="text" placeholder="例）◯◯ドッグラン なつぞらの里" style="width:100%">
+          </div>
+          <div class="field">
+            <label for="q-tel" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">電話番号</label>
+            <input class="input" id="q-tel" data-q="tel" type="tel" placeholder="例）0155-00-0000" style="width:100%">
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:20px">
+            <label for="q-address" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">住所 <span style="color:var(--color-accent-700)">必須</span></label>
+          <input class="input" id="q-address" data-q="address" required="required" type="text" placeholder="例）◯◯郡◯◯町◯◯ 2" style="width:100%">
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:20px">
+          <div class="field">
+            <label for="q-web" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">公式ホームページURL</label>
+            <input class="input" id="q-web" data-q="web" type="url" placeholder="https://" style="width:100%">
+          </div>
+          <div class="field">
+            <label for="q-sns" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">SNSリンク</label>
+            <input class="input" id="q-sns" data-q="sns" type="text" placeholder="Instagram や X のURL" style="width:100%">
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:20px">
+          <label for="q-pr" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">紹介文・PRコメント <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:12.5px;color:var(--color-neutral-700)">※改行はご利用いただけません</span></label>
+          <textarea class="input" id="q-pr" data-q="pr" rows="4" placeholder="わんちゃんと過ごせるポイントや、飼い主さんへ伝えたいことをご記入ください。（改行は使えません）" style="width:100%;resize:vertical;font-family:inherit"></textarea>
+        </div>
+
+        <div style="height:1px;background:var(--color-accent-200);margin:30px 0"></div>
+
+        <p style="margin:0 0 13px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px">設備・条件（もっとも当てはまるもの）</p>
+        <div data-group="features" style="display:flex;flex-wrap:wrap;gap:10px">
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 店内OK" style="accent-color:var(--color-accent);width:17px;height:17px">店内OK</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 テラスOK" style="accent-color:var(--color-accent);width:17px;height:17px">テラスOK</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 ペットカートOK" style="accent-color:var(--color-accent);width:17px;height:17px">ペットカートOK</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 ドッグランあり" style="accent-color:var(--color-accent);width:17px;height:17px">ドッグランあり</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 水飲み場あり" style="accent-color:var(--color-accent);width:17px;height:17px">水飲み場あり</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 リード必須" style="accent-color:var(--color-accent);width:17px;height:17px">リード必須</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 マナーパンツ必須" style="accent-color:var(--color-accent);width:17px;height:17px">マナーパンツ必須</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 大型犬OK" style="accent-color:var(--color-accent);width:17px;height:17px">大型犬OK</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 駐車場あり" style="accent-color:var(--color-accent);width:17px;height:17px">駐車場あり</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 トイレあり" style="accent-color:var(--color-accent);width:17px;height:17px">トイレあり</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 フード販売" style="accent-color:var(--color-accent);width:17px;height:17px">フード販売</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 18px;font-size:14px;cursor:pointer"><input type="radio" name="features" value="🐶 おやつ販売" style="accent-color:var(--color-accent);width:17px;height:17px">おやつ販売</label>
+        </div>
+
+        <p style="margin:28px 0 13px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px">ドッグラン利用に犬鑑札・注射済票の提示が必要ですか?</p>
+        <div data-group="license" style="display:flex;flex-wrap:wrap;gap:10px">
+          <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 22px;font-size:14px;cursor:pointer"><input type="radio" name="license" value="はい" style="accent-color:var(--color-accent);width:17px;height:17px">はい</label>
+          <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 22px;font-size:14px;cursor:pointer"><input type="radio" name="license" value="いいえ" style="accent-color:var(--color-accent);width:17px;height:17px">いいえ</label>
+        </div>
+
+        <div style="height:1px;background:var(--color-accent-200);margin:30px 0"></div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px">
+          <div class="field">
+            <label for="q-open" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">基本営業時間（開店）</label>
+            <input class="input" id="q-open" data-q="open" type="time" style="width:100%">
+          </div>
+          <div class="field">
+            <label for="q-close" style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:8px">基本営業時間（閉店）</label>
+            <input class="input" id="q-close" data-q="close" type="time" style="width:100%">
+          </div>
+        </div>
+
+        <p style="margin:28px 0 13px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14.5px">定休日</p>
+        <div data-group="closed" style="display:flex;flex-wrap:wrap;gap:10px">
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="日" style="accent-color:var(--color-accent);width:17px;height:17px">日</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="月" style="accent-color:var(--color-accent);width:17px;height:17px">月</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="火" style="accent-color:var(--color-accent);width:17px;height:17px">火</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="水" style="accent-color:var(--color-accent);width:17px;height:17px">水</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="木" style="accent-color:var(--color-accent);width:17px;height:17px">木</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="金" style="accent-color:var(--color-accent);width:17px;height:17px">金</label>
+            <label style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:999px;padding:11px 20px;font-size:14px;cursor:pointer"><input type="checkbox" value="土" style="accent-color:var(--color-accent);width:17px;height:17px">土</label>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:32px">
+          <button type="submit" style="border:0;cursor:pointer;background:var(--color-accent);color:#fff;border-radius:999px;padding:15px 34px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px">この内容で申し込む</button>
+          <span id="apply-note" style="font-size:13.5px;line-height:1.8;color:var(--color-neutral-700)">送信内容は掲載や審査とご連絡のためだけに利用します。</span>
+        </div>
+      </form>
+
+      <div id="apply-done" style="display:none;padding:48px 26px;background:var(--color-neutral-100);text-align:center">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:999px;background:var(--color-accent-2-200)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3d472b" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+        </span>
+        <div style="margin:18px 0 8px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:20px">お申し込みを受け付けました</div>
+        <div style="font-size:14px;line-height:1.95;color:var(--color-neutral-700)">内容を確認のうえ、ご記入いただいた連絡先よりご案内いたします。ありがとうございました。</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+      <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:7px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px">分かる範囲のご記入で構いません</div>
+        <div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">未定の項目や、あとで決めたい条件は空欄のままで大丈夫です。審査のなかで改めて確認いたします。</div>
+      </div>
+      <div style="background:var(--color-accent-100);border-radius:var(--radius-lg);padding:20px 22px;display:flex;flex-direction:column;gap:7px">
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:var(--color-accent-800)">送信できなかったときは</div>
+        <div style="font-size:13.5px;line-height:1.9;color:var(--color-neutral-800)">通信の状況によって送信に失敗することがあります。ボタンの横にメッセージが出た場合は、そこに表示されるリンクからお申し込みください。メールでのご連絡でも承ります。</div>
       </div>
     </div>
   </section>
