@@ -701,6 +701,7 @@ a:hover { color: var(--color-accent-600); }
                   <span style="display:inline-block;width:14px;height:14px;margin-top:2px;color:var(--color-accent);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/map-pin.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/map-pin.svg) center/contain no-repeat"></span>
                   <b style="flex:1;font-size:12px">現在地を取得しました（9:12 更新）</b>
                   <span style="border:1.5px solid var(--color-accent-300);border-radius:999px;padding:4px 9px;font-size:10px;font-weight:700;color:var(--color-accent-700);white-space:nowrap">現在地を更新</span>
+                  <span style="display:inline-block;width:13px;height:13px;margin-top:3px;flex:0 0 13px;color:var(--color-neutral-500);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-up.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-up.svg) center/contain no-repeat"></span>
                 </div>
                 <p style="margin:8px 0 0;font-size:11px;color:var(--color-neutral-700)">「挨拶する」を押すと、相手が近くのわんちゃん一覧を見たときに気づけるようになります。<b>お互いに挨拶すると通知が届き、お友達になれます。</b></p>
                 <div style="display:flex;gap:9px;align-items:flex-start;border-top:1px solid var(--color-divider);margin-top:10px;padding-top:10px">
@@ -711,6 +712,23 @@ a:hover { color: var(--color-accent-600); }
                   </div>
                   <span style="width:38px;height:22px;border-radius:999px;background:var(--color-neutral-300);position:relative;flex:0 0 38px"><span style="position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:999px;background:#fff"></span></span>
                 </div>
+              </div>
+              <div style="background:#fff;border-radius:16px;padding:12px;margin-top:10px;box-shadow:var(--shadow-sm);display:flex;gap:9px;align-items:center">
+                <span style="display:inline-block;width:16px;height:16px;flex:0 0 16px;color:var(--color-accent-2-600);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/cloud-sun.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/cloud-sun.svg) center/contain no-repeat"></span>
+                <div style="flex:1">
+                  <p style="margin:0;font-weight:700;font-size:12px">お出かけ目安 <span style="font-weight:400;font-size:10px;color:var(--color-neutral-600)">江別市</span></p>
+                  <p style="margin:2px 0 0;font-size:10px;color:var(--color-neutral-600)">最高22℃・今の時間帯は注意です</p>
+                </div>
+                <span style="background:var(--color-accent);color:#fff;border-radius:8px;padding:3px 8px;font-size:10px;font-weight:700">注意</span>
+                <span style="display:inline-block;width:13px;height:13px;flex:0 0 13px;color:var(--color-neutral-500);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-down.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-down.svg) center/contain no-repeat"></span>
+              </div>
+              <div style="background:#fff;border:1.5px solid var(--color-accent-400);border-radius:16px;padding:12px;margin-top:10px;box-shadow:var(--shadow-sm);display:flex;gap:9px;align-items:center">
+                <span style="display:inline-block;width:16px;height:16px;flex:0 0 16px;color:var(--color-accent);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/triangle-alert.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/triangle-alert.svg) center/contain no-repeat"></span>
+                <div style="flex:1">
+                  <p style="margin:0;font-weight:700;font-size:12px">安全情報を共有する</p>
+                  <p style="margin:2px 0 0;font-size:10px;color:var(--color-neutral-600)">クマの目撃・融雪剤散布エリアなど</p>
+                </div>
+                <span style="display:inline-block;width:13px;height:13px;flex:0 0 13px;color:var(--color-neutral-500);background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-right.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@latest/icons/chevron-right.svg) center/contain no-repeat"></span>
               </div>
               <div style="background:#fff;border-radius:16px;padding:12px;margin-top:10px;box-shadow:var(--shadow-sm)">
                 <div style="display:flex;gap:10px;align-items:flex-start">
@@ -763,8 +781,27 @@ a:hover { color: var(--color-accent-600); }
             <p style="margin:0;font-size:15px;line-height:1.9;color:var(--color-neutral-700)">同じ画面の上部には、近くの施設からすぐチェックインできるボタンと、今月のチェックインランキング（施設ごとの獲得ポイント）が並びます。</p>
           </div>
           <div>
-            <p style="margin:0 0 6px;font-weight:700;font-size:17px">「近くのわんちゃんから非表示」トグル</p>
-            <p style="margin:0;font-size:15px;line-height:1.9;color:var(--color-neutral-700)">今日はそっとしておきたい、という日は同じ画面のトグルをオンに。<b>オンの間は、自分も相手も一覧に出なくなります</b>（相互に非表示です）。記録やチェックインなど他の機能はそのまま使えますし、いつでも戻せます。</p>
+            <p style="margin:0 0 6px;font-weight:700;font-size:17px">現在地カードをタップ → 「近くのわんちゃんから非表示」</p>
+            <p style="margin:0;font-size:15px;line-height:1.9;color:var(--color-neutral-700)">いちばん上の現在地カードをタップすると中身が開いて、<b>「近くのわんちゃんから非表示」のオン・オフ</b>が切り替えられます。今日はそっとしておきたい、という日はオンに。<b>オンの間は、自分も相手も一覧に出なくなります</b>（相互に非表示です）。記録やチェックインなど他の機能はそのまま使えますし、いつでも戻せます。</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-weight:700;font-size:17px">お出かけ目安カードをタップ</p>
+            <p style="margin:0;font-size:15px;line-height:1.9;color:var(--color-neutral-700)">お住まいのエリアの気温と、いまの時間帯の目安が出ています。カードをタップすると<b>詳しい目安を確認できます</b>。「注意」と出ている時間帯は、お散歩の時間をずらす判断に使ってください。</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-weight:700;font-size:17px">安全情報を共有するカードをタップ</p>
+            <p style="margin:0;font-size:15px;line-height:1.9;color:var(--color-neutral-700)">お散歩中に気づいた危険を、その場から投稿できます。種別を選び、必要ならコメントと写真を添えて「現在地から投稿する」。<b>運営が内容を確認したうえで公開され、付近にいる飼い主さんへの注意喚起になります。</b></p>
+            <div class="card elev-sm" style="border-radius:var(--radius-lg);padding:20px 22px;margin-top:14px;background:var(--color-accent-100)">
+              <p style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--color-accent-800)">共有できる種別</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px">
+                <span class="tag tag-accent" style="padding:6px 12px">野生動物の目撃情報</span>
+                <span class="tag tag-accent" style="padding:6px 12px">融雪・除草剤散布エリア</span>
+                <span class="tag tag-accent" style="padding:6px 12px">有害植物・キノコ</span>
+                <span class="tag tag-accent" style="padding:6px 12px">交通量が多い・危険な道</span>
+                <span class="tag tag-accent" style="padding:6px 12px">ペット同伴可の避難所</span>
+              </div>
+              <p style="margin:12px 0 0;font-size:14px;line-height:1.85;color:var(--color-accent-900)">コメントと写真は任意です。周囲100m以内に同じ種別の報告があるときは投稿できません。</p>
+            </div>
           </div>
           <div>
             <p style="margin:0 0 6px;font-weight:700;font-size:17px">認定施設のカードも混ざります</p>
@@ -985,6 +1022,10 @@ a:hover { color: var(--color-accent-600); }
           <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-md);padding:24px">
             <p style="margin:0 0 8px;font-weight:700;font-size:16px;color:#fff">プライベートエリア</p>
             <p style="margin:0;font-size:14px;line-height:1.85">自宅などを登録しておくと、その5km圏内では「近くのわんちゃん」に双方向で表示されません。生活圏を知られたくないときの守りです。</p>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-md);padding:24px">
+            <p style="margin:0 0 8px;font-weight:700;font-size:16px;color:#fff">安全情報は運営が確認してから公開</p>
+            <p style="margin:0;font-size:14px;line-height:1.85">投稿された安全情報は、運営が内容を確認したうえで公開されます。周囲100m以内に同じ種別の報告があるときは投稿できないため、同じ情報が重なりません。</p>
           </div>
           <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-md);padding:24px">
             <p style="margin:0 0 8px;font-weight:700;font-size:16px;color:#fff">いつでも一覧から隠せます</p>
