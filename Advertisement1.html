@@ -418,8 +418,6 @@ window.EZO_NEWS_FORM = {
         group.querySelectorAll("input:checked").forEach(function (input) { params.append(id, input.value); });
       });
       params.append("fvv", "1");
-      params.append("pageHistory", "0,1,2");
-      params.append("fbzx", "");
 
       var btn = form.querySelector('[data-submit]');
       if (btn) { btn.disabled = true; btn.textContent = "送信しています…"; }
@@ -665,7 +663,7 @@ window.EZO_NEWS_FORM = {
               <label class="opt" style="display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:15px 20px;font-size:15px;line-height:1.6;cursor:pointer"><input type="radio" name="plan" value="個人サポーター" style="accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">個人サポーター</label>
               <label class="opt" style="display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:15px 20px;font-size:15px;line-height:1.6;cursor:pointer"><input type="radio" name="plan" value="ビジネスサポーター（新サービス・商品宣伝）" style="accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">ビジネスサポーター（新サービス・商品宣伝）</label>
               <label class="opt" style="display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:15px 20px;font-size:15px;line-height:1.6;cursor:pointer"><input type="radio" name="plan" value="イベントサポーター（大型イベント・集客目的）" style="accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">イベントサポーター（大型イベント・集客目的）</label>
-              <label class="opt" style="display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:15px 20px;font-size:15px;line-height:1.65;cursor:pointer"><input type="radio" name="plan" value="イベントサポーター（大型イベント・集客目的かつ認定パートナー施設登録希望）" style="margin-top:3px" style="accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">イベントサポーター（大型イベント・集客目的かつ認定パートナー施設登録希望）</label>
+              <label class="opt" style="display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:15px 20px;font-size:15px;line-height:1.65;cursor:pointer"><input type="radio" name="plan" value="イベントサポーター（大型イベント・集客目的かつ認定パートナー施設登録希望）" style="margin-top:3px;accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">イベントサポーター（大型イベント・集客目的かつ認定パートナー施設登録希望）</label>
             </div>
 
             <p style="margin:30px 0 8px;font-weight:700;font-size:15px">運営支援金の決済方法 <span style="color:var(--color-accent-700)">＊必須</span></p>
@@ -684,7 +682,7 @@ window.EZO_NEWS_FORM = {
               <p style="margin:0;font-size:14px;line-height:2.05;color:var(--color-neutral-800);max-width:46em">エゾわん！掲載規約および同意事項<br>本サービスへの情報掲載を申し込む企業、団体、または個人（以下「掲載者」）は、以下の事項を確認し、同意した上で申し込むものとします。<br><br>1. 掲載の趣旨と運営支援金<br>・本アプリは北海道の飼い主様が無料で安心して利用できる環境を維持することを目的としています。<br>・掲載にあたっては、アプリの維持・開発を支えるための「運営支援金（寄付）」をお願いしております。<br>・支援金は、システムの保守、セキュリティの強化、およびコミュニティ活性化のために大切に活用させていただきます。<br><br>2. お支払いおよび領収書について<br>・支援金のお支払い確定後、掲載作業を開始いたします。<br>・運営コストを最大限アプリの維持に充てるため、当事務局からの領収書の発行は行っておりません。銀行振込控えや決済履歴を証明書類としてご利用ください。<br>・一度お振り込みいただいた支援金は、理由のいかんを問わず返金いたしかねます。<br><br>3. 掲載内容の責任と著作権<br>・掲載する写真、文章、リンク先等の情報に関する著作権および肖像権は掲載者に帰属するか、正当な権利を有しているものに限ります。<br>・万が一、掲載内容に関して第三者との間で紛争が生じた場合、掲載者の責任と費用において解決するものとし、当事務局は一切の責任を負いません。<br>・情報の正確性（営業時間、住所、設備条件等）については掲載者が責任を持って確認してください。<br><br>4. 禁止事項<br>以下の内容を含む投稿や周知は固く禁止します。<br>・公序良俗に反する内容、または法令に違反する内容。<br>・わんちゃんや飼い主様、第三者に対する誹謗中傷、名誉毀損。<br>・虚偽の内容、または誤解を招く表現。<br>・犬やペットに関係のない過度な勧誘や不適切な広告。<br><br>5. 運営側の権利と免責事項<br>・アプリのUI（見た目）や操作性を保つため、提供いただいた素材のトリミングや文章の微調整を運営側で行う場合があります。<br>・ユーザー同士、またはユーザーと掲載者の間で生じたトラブル（来店時の事故、チャットでのやり取り等）について、当事務局は理由のいかんを問わず一切の責任を負いません。<br>・利用規約違反や不適切な行為が確認された場合、運営の判断で事前の通知なく掲載を停止または削除することがあります。その際、支援金の返金は行いません。<br><br>6. 個人情報の取り扱い<br>・掲載申込時に取得した氏名、連絡先等の基本情報は、掲載に関する事務連絡および管理にのみ利用します。<br>・一般ユーザーが利用する匿名データとは厳格に切り離して管理し、本人の同意なく第三者に提供することはありません。</p>
             </div>
             <div data-group="agree" style="margin-top:16px">
-              <label class="opt" style="display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:16px 20px;font-size:15px;line-height:1.65;cursor:pointer"><input type="checkbox" value="上記の「掲載規約および同意事項」を読み、内容に同意します。" style="margin-top:3px" style="accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">上記の「掲載規約および同意事項」を読み、内容に同意します。</label>
+              <label class="opt" style="display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid var(--color-accent-200);border-radius:18px;padding:16px 20px;font-size:15px;line-height:1.65;cursor:pointer"><input type="checkbox" value="上記の「掲載規約および同意事項」を読み、内容に同意します。" style="margin-top:3px;accent-color:var(--color-accent);width:18px;height:18px;flex:0 0 18px">上記の「掲載規約および同意事項」を読み、内容に同意します。</label>
             </div>
 
             <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px">
